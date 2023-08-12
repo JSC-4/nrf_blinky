@@ -1,0 +1,14 @@
+# Name of the workflow
+name: Build Project
+
+# Triggers on push events
+on: [push]
+
+# Jobs to run in parallel
+jobs:
+  # Job to print something out
+  say-hello:
+    runs-on: ubuntu-latest
+    steps:
+      - run: echo "Hello, Github Actions!"
+      
