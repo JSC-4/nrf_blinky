@@ -4,11 +4,28 @@ name: Build Project
 # Triggers on push events
 on: [push]
 
-# Jobs to run in parallel
+# Create an environment variable, which matches the project()
+env:
+  APP_NAME: blink
+
+# Allow this workflow write permissions to write back to the repository
+permissions:
+  contents: write
+
+# Build artifacts and send to release
 jobs:
-  # Job to print something out
-  say-hello:
+  build-project:
     runs-on: ubuntu-latest
+    name: Build and deploy
     steps:
-      - run: echo "Hello, Github Actions!"
-      
+      - name: Check out this repo
+        uses: actions/checkout@v3
+
+      - name: Build Docker image
+        run: docker build -f Dockerfile -t nrf-blink .
+
+      - name: Create Docker container
+        run: docker create --name nrf-blink-container nrf-blink
+
+      - name: Copy artifacts
+        run: docker cp nrf-blink-container:/

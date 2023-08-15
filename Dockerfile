@@ -16,4 +16,14 @@ RUN wget https://developer.arm.com/-/media/Files/downloads/gnu-rm/10-2020q4/gcc-
     && mv gcc-arm-none-eabi-10-2020-q4-major /opt/ 
 ENV PATH="/opt/gcc-arm-none-eabi-10-2020-q4-major/bin:$PATH"
 
+# Add the project to the WORKDIR
+ADD . ${WORKDIR}
 
+# Build project
+RUN \
+  cd ${WORKDIR} && \
+  mkdir -p /app/_build && \
+  cmake /app/ -B _build -GNinja && \
+  echo pwd
+  # cmake --build _build --target blinky -j && \
+  # cp /app/_build/app/ ${WORKDIR}/output
