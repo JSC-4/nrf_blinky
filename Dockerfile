@@ -22,6 +22,6 @@ ADD . ${WORKDIR}
 # Build project
 RUN \
   cd ${WORKDIR} && \
-  mkdir -p /app/_build && \
-  cmake /app/ -B _build -GNinja && \
+  mkdir -p ${WORKDIR}/_build && \
+  cmake ${WORKDIR} -B _build -GNinja && \
   cmake --build _build --target blinky -j
