@@ -20,9 +20,15 @@ ENV PATH="/opt/gcc-arm-none-eabi-10-2020-q4-major/bin:$PATH"
 ADD . ${WORKDIR}
 
 # Build project
-RUN \
-  cd ${WORKDIR} && \
-  ls && \
-  mkdir -p ${WORKDIR}/_build && \
-  cmake ${WORKDIR} -B _build -GNinja && \
-  cmake --build _build --target blinky -j
+# RUN \
+#   cd ${WORKDIR} && \
+#   ls && \
+#   mkdir -p ${WORKDIR}/_build && \
+#   cmake ${WORKDIR} -B _build -GNinja && \
+#   cmake --build _build --target blinky -j
+
+RUN cd ${WORKDIR} 
+RUN ls 
+RUN mkdir -p ${WORKDIR}/_build
+RUN cmake ${WORKDIR} -B _build -GNinja
+RUN cmake --build _build --target blinky -j
