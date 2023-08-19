@@ -37,4 +37,4 @@ jobs:
         uses: actions/upload-artifact@v3
         with:
           name: output-files
-          path: nrf-blink-container:/app/_build/app/${APP_NAME}.hex ./${APP_NAME}.hex
+          path: /app/_build/app/${APP_NAME}.hex ./${APP_NAME}.hex
