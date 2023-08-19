@@ -24,6 +24,4 @@ RUN \
   cd ${WORKDIR} && \
   mkdir -p /app/_build && \
   cmake /app/ -B _build -GNinja && \
-  echo pwd
-  # cmake --build _build --target blinky -j && \
-  # cp /app/_build/app/ ${WORKDIR}/output
+  cmake --build _build --target blinky -j

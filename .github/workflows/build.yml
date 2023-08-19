@@ -28,4 +28,10 @@ jobs:
         run: docker create --name nrf-blink-container nrf-blink
 
       - name: Copy artifacts
-        run: docker cp nrf-blink-container:/
+        run: docker cp nrf-blink-container:/app_build/app/${APP_NAME}.hex ./${APP_NAME}.hex
+
+      - name: Put environment variable into the env context
+        run: echo "app_name=$APP_NAME" >> $GITHUB_ENV
+
+      - name: Push to release
+        uses: softprops/action-gh-release@v1
