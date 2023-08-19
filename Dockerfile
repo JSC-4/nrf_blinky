@@ -31,5 +31,6 @@ RUN cd ${WORKDIR}
 RUN ls 
 RUN pwd
 RUN mkdir -p _build
+RUN ls 
 RUN cmake . -B _build -GNinja
 RUN cmake --build _build --target blinky -j
