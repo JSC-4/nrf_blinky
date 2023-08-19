@@ -6,7 +6,7 @@ on: [push]
 
 # Create an environment variable, which matches the project()
 env:
-  APP_NAME: blink
+  APP_NAME: blinky
 
 # Allow this workflow write permissions to write back to the repository
 permissions:
