@@ -30,11 +30,8 @@ jobs:
       - name: Copy artifacts
         run: docker cp nrf-blink-container:/app/_build/app/${APP_NAME}.hex ./${APP_NAME}.hex
 
-      - name: Put environment variable into the env context
-        run: echo "app_name=$APP_NAME" >> $GITHUB_ENV
-
       - name: Archive output files
         uses: actions/upload-artifact@v3
         with:
           name: output-files
-          path: ${ {env.app_name} }.hex
+          path: ./blinky.hex
