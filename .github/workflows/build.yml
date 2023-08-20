@@ -37,4 +37,22 @@ jobs:
         uses: actions/upload-artifact@v3
         with:
           name: output-files
-          path: /app_name.hex
+          path: ./app_name.hex
+
+      - name: Archive output files
+        uses: actions/upload-artifact@v3
+        with:
+          name: output-files
+          path: ./$app_name.hex
+
+      - name: Archive output files
+        uses: actions/upload-artifact@v3
+        with:
+          name: output-files
+          path: ./${app_name}.hex
+
+      - name: Archive output files
+        uses: actions/upload-artifact@v3
+        with:
+          name: output-files
+          path: ./blinky.hex
