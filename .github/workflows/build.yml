@@ -37,4 +37,4 @@ jobs:
         uses: actions/upload-artifact@v3
         with:
           name: output-files
-          path: /${APP_NAME}.hex
+          path: /app_name.hex
